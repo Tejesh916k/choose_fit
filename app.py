@@ -8,10 +8,14 @@ from matplotlib.figure import Figure
 import io
 import base64
 from flask import session
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = 'secret_key'
-client= MongoClient("mongodb+srv://tejeshkesanakurthy:tejesh916k@cluster0.cnrtsld.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+app.secret_key = os.getenv("SECRET_KEY")
+
+client = MongoClient(os.getenv("MONGODB_URI"))
 db=client["fitness_db"]
 users=db["users"]
 workouts=db["workouts"]
