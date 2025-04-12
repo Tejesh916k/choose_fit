@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/fitness_forms.css') }}">
 
     <title>Document</title>
+    <style>
+        .logout-btn {
+            padding: 8px 16px;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            float: right;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+        </style>
 </head>
 <body>
     {% extends 'base.html' %}
@@ -31,6 +46,9 @@
         <button type="submit">Submit Workout</button>
     </form>
 </div>
+<br>
+<a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+
 {% endblock %}
 </body>
 </html>

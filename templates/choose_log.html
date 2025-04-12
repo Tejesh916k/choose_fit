@@ -23,6 +23,21 @@
         .btn:hover {
             background-color: #019875;
         }
+       
+.logout-btn {
+    padding: 8px 16px;
+    background-color: #e74c3c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.logout-btn:hover {
+    background-color: #c0392b;
+}
+
     </style>
 </head>
 <body>
@@ -33,6 +48,10 @@
     <h2>Welcome Back! What would you like to do?</h2>
     <a href="/log_workout"><button class="btn">Log Workout</button></a>
     <a href="/log_meals"><button class="btn">Log Meal</button></a>
+    <br>
+    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+
     {% endblock %}
+
 </body>
 </html>

@@ -5,6 +5,21 @@
     <title>Dashboard | Fitness Tracker</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
+<style>
+  .logout-btn {
+      padding: 8px 16px;
+      background-color: #e74c3c;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      float: right;
+      margin-top: 10px;
+      margin-right: 10px;
+  }
+  .logout-btn:hover {
+      background-color: #c0392b;
+  }
+  </style>
 <body>
     {% extends 'base.html' %}
 {% block title %}Dashboard | Fit-Track{% endblock %}
@@ -60,6 +75,9 @@
         <button type="submit">Calculate</button>
       </form>
     </div>
+    <br>
+    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+
   {% endif %}
   
 {% endblock %}

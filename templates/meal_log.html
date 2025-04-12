@@ -3,6 +3,21 @@
 <head>
     <title>Log Your Meals</title>
     <style>
+        
+.logout-btn {
+    padding: 8px 16px;
+    background-color: #e74c3c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.logout-btn:hover {
+    background-color: #c0392b;
+}
+
         body {
             font-family: 'Segoe UI', sans-serif;
             background: linear-gradient(135deg, #f9f9f9, #e0f7fa);
@@ -201,6 +216,9 @@
         </div>
         {% endif %}
     </div>
+    <br>
+    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+
     {% endblock %}
 </body>
 </html>

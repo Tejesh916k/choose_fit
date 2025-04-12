@@ -18,6 +18,19 @@
             border-radius: 10px;
             cursor: pointer;
         }
+        .logout-btn {
+    padding: 8px 16px;
+    background-color: #eb4735;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.logout-btn:hover {
+    background-color: #d6402f;
+}
     </style>
 </head>
 <body>
@@ -48,7 +61,9 @@
     <a href="{{ url_for('choose_log') }}">
         <button style="margin-top: 20px;">Back to Log Selection</button>
     </a>
-    
+    <br>
+    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+
     {% endblock %}
 </body>
 </html>

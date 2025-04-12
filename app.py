@@ -89,6 +89,10 @@ def choose_log():
         return redirect('/login')
     return render_template('choose_log.html')
 
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
 
 
 
