@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Log Your Meals</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f9f9f9, #e0f7fa);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #00796b;
+            margin-bottom: 25px;
+        }
+
+        form label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        select, input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #004d40;
+        }
+
+        .progress-container {
+            margin-top: 30px;
+        }
+
+        .progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-fill {
+    height: 20px;
+    background-color: #26a69a;
+    text-align: center;
+    color: white;
+    line-height: 20px;
+    font-size: 14px;
+    transition: width 0.5s ease;
+}
+
+
+
+        .suggestions {
+            background-color: #f1f8e9;
+            border-left: 5px solid #8bc34a;
+            padding: 15px;
+            margin-top: 25px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block title %}Dashboard | Fit-Track{% endblock %}
+ 
+     {% block content %}
+    <div class="container">
+        <h2>Log Your Meals</h2>
+        <form method="POST" action="/log_meals">
+            <label for="breakfast">Breakfast</label>
+            <select name="breakfast" required>
+                <option value="">Select</option>
+                <option value="300">Oats & Fruits (300 cal)</option>
+                <option value="250">Egg Sandwich (250 cal)</option>
+                <option value="200">Idli & Sambar (200 cal)</option>
+                <option value="180">Upma (180 cal)</option>
+                <option value="150">Vada(200 cal)</option>
+            </select>
+
+            <label for="nuts">Morning Nuts</label>
+            <select name="nuts" required>
+                <option value="">Select</option>
+                <option value="100">Almonds & Walnuts (100 cal)</option>
+                <option value="80">Peanuts (80 cal)</option>
+                <option value="100">Pumpkin Seeds (80 cal)</option>
+                <option value="120">Cashews (120 cal)</option>
+                <option value="150">Dates(150 cal)</option>
+            </select>
+
+            <label for="dairy">Dairy Products</label>
+            <select name="dairy" required>
+                <option value="">Select</option>
+                <option value="150">Milk (150 cal)</option>
+                <option value="120">Curd (120 cal)</option>
+                <option value="80">Buttermilk (80 cal)</option>
+                <option value="200">Cheese Slice (200 cal)</option>
+                <option value="250">Paneer (100g - 250 cal)</option>
+                <option value="160">Flavored Yogurt (160 cal)</option>
+                <option value="130">Lassi (130 cal)</option>
+                <option value="100">Low-fat Milk (100 cal)</option>
+                <option value="90">Greek Yogurt (90 cal)</option>
+
+            </select>
+
+            <label for="juices">Juices</label>
+            <select name="juices" required>
+                <option value="">Select</option>
+                <option value="">Select</option>
+                <option value="130">Orange Juice (130 cal)</option>
+                <option value="110">Carrot Juice (110 cal)</option>
+                <option value="120">Apple Juice (120 cal)</option>
+                <option value="140">Grape Juice (140 cal)</option>
+                <option value="90">Watermelon Juice (90 cal)</option>
+                <option value="100">Pineapple Juice (100 cal)</option>
+                <option value="85">Lemon Juice (85 cal)</option>
+                <option value="95">Pomegranate Juice (95 cal)</option>
+                <option value="105">Beetroot Juice (105 cal)</option>
+                <option value="70">Cucumber Mint Juice (70 cal)</option>
+            </select>
+
+            <label for="desserts">Desserts</label>
+            <select name="desserts" required>
+                <option value="">Select</option>
+                <option value="250">Ice Cream (250 cal)</option>
+<option value="180">Fruit Salad (180 cal)</option>
+<option value="300">Chocolate Cake (300 cal)</option>
+<option value="220">Gulab Jamun (2 pcs - 220 cal)</option>
+<option value="200">Rasgulla (2 pcs - 200 cal)</option>
+<option value="270">Brownie (270 cal)</option>
+<option value="150">Custard (150 cal)</option>
+<option value="190">Kheer (190 cal)</option>
+<option value="160">Mango Mousse (160 cal)</option>
+<option value="210">Sweet Pongal (210 cal)</option>
+
+            </select>
+
+            <label for="dinner">Dinner Meals</label>
+            <select name="dinner" required>
+                <option value="">Select</option>
+                <option value="400">Chapati with Veg Curry (400 cal)</option>
+<option value="350">Rice & Dal (350 cal)</option>
+<option value="450">Grilled Paneer with Veggies (450 cal)</option>
+<option value="380">Vegetable Pulao with Raita (380 cal)</option>
+<option value="420">Khichdi with Ghee (420 cal)</option>
+<option value="360">Vegetable Upma (360 cal)</option>
+<option value="400">Dosa with Chutney & Sambar (400 cal)</option>
+<option value="340">Lemon Rice with Pickle (340 cal)</option>
+<option value="300">Mixed Veg Paratha with Curd (300 cal)</option>
+<option value="390">Stuffed Capsicum with Rice (390 cal)</option>
+
+            </select>
+
+            <input type="submit" value="Log Meal">
+        </form>
+
+        {% if calories_consumed %}
+        <div class="progress-container">
+            <h3>Today's Meal Progress</h3>
+            <p>You consumed <strong>{{ calories_consumed }}</strong> out of <strong>{{ recommended_calories }}</strong> calories.</p>
+            <div class="progress-bar">
+                <div class="progress-fill" >
+                    {{ progress_percent }}%
+                </div>
+                            </div>
+        </div>
+
+        <div class="suggestions">
+            {% if calories_consumed < recommended_calories %}
+                <p>💡 You're under your calorie goal. Consider adding a light snack or fruit.</p>
+            {% elif calories_consumed == recommended_calories %}
+                <p>✅ Perfect! You've met your goal for the day.</p>
+            {% else %}
+                <p>⚠️ You've exceeded your calorie goal. Try to balance it with a light workout or walk.</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+    {% endblock %}
+</body>
+</html>

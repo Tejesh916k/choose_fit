@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Fit-Track{% endblock %}</title>
+     
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="brand">Fit-Track</div>
+            <nav>
+                <a style="color: rgb(83, 83, 208);" href="#">About</a>
+                <a  style="color: rgb(83, 83, 208);" href="#">Info</a>
+                <a  style="color: rgb(83, 83, 208);" href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>
+                Fit-Track is your personal fitness companion, helping you log, track, and analyze your workouts and meals effortlessly. 
+                Whether you're hitting the gym, running, or following yoga sessions, Fit-Track adapts to your routine.
+            </p>
+            <p>
+                Get personalized analytics and weekly summaries, stay on top of your goals, and achieve peak performance!
+                This is your journey. Let Fit-Track be your guide.
+            </p>
+            <div class="footer-icons">
+                <i class="fab fa-facebook-square"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-linkedin"></i>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

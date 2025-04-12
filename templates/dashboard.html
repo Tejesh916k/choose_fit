@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Fitness Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    {% extends 'base.html' %}
+{% block title %}Dashboard | Fit-Track{% endblock %}
+
+{% block content %}
+<!-- Progress Filter -->
+<div class="progress-section">
+    <h2>📈 Your Progress Chart</h2>
+    <form method="POST" action="/progress">
+      <label for="start">Start Date:</label>
+      <input type="date" name="start_date" required>
+      <label for="end">End Date:</label>
+      <input type="date" name="end_date" required>
+      <button type="submit">Show Progress</button>
+    </form>
+  </div>
+  
+  <!-- Chart Display -->
+  {% if chart_url %}
+  <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 40px;">
+      <h3>Your Workout Progress</h3>
+      <img src="{{ chart_url }}" alt="Progress Chart" width="600">
+      <p style="font-weight: bold; color: green;">{{ quote }}</p>
+  </div>
+  {% endif %}
+  
+
+{% if chart_url %}
+<div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 40px;">
+    <h3>Your OVERALL Workout Progress</h3>
+    <img src="{{ chart_url }}" alt="Progress Chart" width="600">
+    <p style="font-weight: bold; color: green;">{{ quote }}</p>
+</div>
+{% endif %}
+
+
+  
+  <!-- BMI Calculator Output -->
+  {% if bmi %}
+    <div class="bmi-section">
+      <h2>⚖️ BMI Result</h2>
+      <p>Your BMI is: <strong>{{ bmi }}</strong> ({{ bmi_status }})</p>
+    </div>
+  {% else %}
+    <!-- BMI Input Form -->
+    <div class="bmi-form">
+      <h3>Calculate Your BMI</h3>
+      <form action="/calculate_bmi" method="POST">
+        <label for="height">Height (in meters):</label>
+        <input type="number" name="height" step="0.01" required>
+        <label for="weight">Weight (in kg):</label>
+        <input type="number" name="weight" step="0.1" required>
+        <button type="submit">Calculate</button>
+      </form>
+    </div>
+  {% endif %}
+  
+{% endblock %}
+
+</body>
+</html>

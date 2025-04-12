@@ -1,0 +1,38 @@
+<!-- templates/choose_log.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Choose Activity</title>
+    <style>
+        body {
+            background-color: #eef2f3;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+        }
+        .btn {
+            background-color: #00b894;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #019875;
+        }
+    </style>
+</head>
+<body>
+    {% extends 'base.html' %}
+   {% block title %}Dashboard | Fit-Track{% endblock %}
+
+    {% block content %}
+    <h2>Welcome Back! What would you like to do?</h2>
+    <a href="/log_workout"><button class="btn">Log Workout</button></a>
+    <a href="/log_meals"><button class="btn">Log Meal</button></a>
+    {% endblock %}
+</body>
+</html>

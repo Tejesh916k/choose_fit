@@ -1,0 +1,150 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 450px;
+    margin: 60px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form input, form select, form button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+.menu a {
+    display: block;
+    margin: 15px 0;
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+/* Add this to your existing styles.css */
+
+/* ==== Navbar ==== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, #00c9ff, #92fe9d);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar .brand {
+    font-size: 30px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, #2c3e50, #27ae60);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: slideIn 0.6s ease;
+}
+
+.navbar nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 16px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.navbar nav a::after {
+    content: '';
+    height: 2px;
+    width: 0%;
+    background: white;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover::after {
+    width: 100%;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-40px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+
+/* ==== Footer ==== */
+footer {
+    background: #1e272e;
+    color: #dcdde1;
+    padding: 60px 20px;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    margin-top: 80px;
+    border-top: 4px solid #00c9ff;
+}
+
+footer .footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+footer p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 20px 0;
+    color: #bdc3c7;
+}
+
+.footer-icons {
+    margin-top: 25px;
+}
+
+.footer-icons i {
+    font-size: 26px;
+    margin: 0 12px;
+    color: #00c9ff;
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.footer-icons i:hover {
+    color: #27ae60;
+    transform: scale(1.2);
+}
+
+

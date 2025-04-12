@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meal Summary</title>
+    <style>
+        body { font-family: Arial; background-color: #f3f3f3; padding: 30px; text-align: center; }
+        .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 0 10px #ccc; display: inline-block; }
+        h1 { color: #26a69a; }
+        .highlight { font-size: 22px; margin: 20px 0; color: #333; }
+        .fact { background: #e0f2f1; margin: 10px; padding: 10px; border-radius: 6px; color: #004d40; }
+        button {
+            background-color: #00b894;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block title %}Log Workout | Fit-Track{% endblock %}
+    
+    {% block content %}
+    <br>
+    <br>
+    <div class="card">
+        <h1>🍽️ Meal Summary</h1>
+        <div class="highlight">Hello, <strong>{{ name }}</strong>!</div>
+        <p>You consumed <strong>{{ total_calories }}</strong> calories today.</p>
+        <p>Based on your BMI, your recommended intake is <strong>{{ recommended_calories }}</strong> calories.</p>
+
+        {% if total_calories > recommended_calories %}
+            <p style="color: red;">⚠️ You exceeded the recommended intake. Try a lighter meal next time!</p>
+        {% else %}
+            <p style="color: green;">✅ Great job! You're within your healthy calorie range.</p>
+        {% endif %}
+
+        <h3>🥗 Food Facts</h3>
+        {% for fact in food_facts %}
+            <div class="fact">{{ fact }}</div>
+        {% endfor %}
+    </div>
+    <br>
+    <a href="{{ url_for('choose_log') }}">
+        <button style="margin-top: 20px;">Back to Log Selection</button>
+    </a>
+    
+    {% endblock %}
+</body>
+</html>

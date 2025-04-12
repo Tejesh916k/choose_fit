@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fitness_forms.css') }}">
+
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block title %}Progress Chart | Fit-Track{% endblock %}
+    
+    {% block content %}
+    <div class="form-container">
+        <h2>Your Fitness Progress</h2>
+        <div class="chart-box">
+            <img src="{{ url_for('static', filename='charts/progress_chart.png') }}" alt="Progress Chart">
+        </div>
+    </div>
+    {% endblock %}
+    
+
+</body>
+</html>
+
